@@ -5,13 +5,13 @@
     "ejs": "~0.8.5",
     "express": "~3.4.8",
     "nconf": "~0.6.9",
-    "parse": "*",
     "q": "~1.0.0",
     "q-io": "^1.11.6",
     "request": "~2.34.0",
     "requestify": "~0.1.16",
     "then-redis": "*",
-    "winston": "~0.7.2"
+    "winston": "~0.7.2",
+    "vend-nodejs-sdk": "ShoppinPal/vend-nodejs-sdk#master"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
