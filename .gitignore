@@ -5,5 +5,4 @@ node_modules/
 .idea/
 .editorconfig
 .nvmrc
-.jshintrc
 oauth.txt
