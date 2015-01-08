@@ -140,7 +140,6 @@ module.exports = function (grunt) {
       'loadConfig:development',
       'localtunnel:dev',
       'clean:server',
-      'concurrent:server',
       'env:development',
       'replace:dev',
       'express:development',
