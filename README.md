@@ -9,4 +9,4 @@
 4. bower install
 
 ## run
-grunt server --subdomain <yourUniqueDummyDomainName>
+grunt server --subdomain yourUniqueDummyDomainName
