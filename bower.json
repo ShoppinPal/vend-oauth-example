@@ -1,0 +1,19 @@
+{
+  "name": "vend-oauth-example",
+  "version": "1.0.0",
+  "dependencies": {
+    "json3": "~3.2.4",
+    "es5-shim": "~2.0.8",
+    "angular": "1.2.18",
+    "angular-resource": "1.2.18",
+    "angular-cookies": "1.2.18",
+    "angular-sanitize": "1.2.18",
+    "angular-ui-bootstrap": "~0.10.0",
+    "angular-bootstrap": "~0.10.0",
+    "angular-route": "1.2.18",
+    "ngstorage": "~0.3.0",
+    "underscore": "~1.5.2",
+    "angular-ui-router": "~0.2.10",
+    "angular-ui-utils": "~0.1.1"
+  }
+}

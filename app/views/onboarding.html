@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-2">
+        <div class="form-group"></div>
+        <div class="form-group">
+            <label>
+                (1) Don't forget to configure client_id and client_secret, if you haven't already, before running this sample.
+                <br/>
+                <br/>
+                (2) And also make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
+            </label>
+        </div>
+        <div class="form-group required">
+            <label for="vendurl">(3) What is the domain prefix for your Vend Store?</label>
+            <div class="input-group">
+                <span class="input-group-addon">https://</span>
+                <input type="text" class="form-control"
+                       name="vendurl" id="vendurl"
+                       placeholder="mystore"
+                       ng-model="domainPrefix"
+                       required/>
+                <span class="input-group-addon">.vendhq.com</span>
+            </div>
+        </div>
+        <div class="form-group"
+             ng-if="domainPrefix && domainPrefix.length>0 && domainPrefix.trim().length>0">
+            <label>
+                Click the link below to request an authorization code for oauth from Vend:
+                <br/><br/>
+                <a ng-href="{{vend.loginUrl()}}">
+                    {{vend.authEndpoint}}
+                </a>
+            </label>
+        </div>
+    </div>
+</div>
