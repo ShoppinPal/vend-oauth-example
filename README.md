@@ -10,3 +10,7 @@
 
 ## run
 grunt server --subdomain yourUniqueDummyDomainName
+
+## contributions
+
+You can pick and choose from the existing issues for any features you want to help add, or any bugs you want to crush. Get in touch via the chat link above if you wish to contribute and have specific questions. Otherwise, jsut fork the repo, make your changes and when you're ready, issue a pull-request for review.
