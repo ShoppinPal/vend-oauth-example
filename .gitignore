@@ -1,8 +1,12 @@
 .sass-cache/
 .tmp/
 app/bower_components/
-node_modules/
 .idea/
+
 .editorconfig
 .nvmrc
 oauth.txt
+
+!/node_modules/
+/node_modules/*
+!/node_modules/vend-nodejs-sdk
