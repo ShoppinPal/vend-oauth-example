@@ -1,0 +1,3 @@
+[submodule "node_modules/vend-nodejs-sdk"]
+	path = node_modules/vend-nodejs-sdk
+	url = https://github.com/ShoppinPal/vend-nodejs-sdk.git

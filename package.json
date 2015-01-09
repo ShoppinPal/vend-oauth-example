@@ -10,8 +10,7 @@
     "request": "~2.34.0",
     "requestify": "~0.1.16",
     "then-redis": "*",
-    "winston": "~0.7.2",
-    "vend-nodejs-sdk": "ShoppinPal/vend-nodejs-sdk#master"
+    "winston": "~0.7.2"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
