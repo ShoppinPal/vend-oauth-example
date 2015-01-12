@@ -10,7 +10,13 @@
                 </ol>
             </label>
             <label ng-if="currentState.oauth.access_token">
-                You have an access_token for <a>{{currentState.oauth.domain_prefix}}.vendhq.com</a> which expires on {{currentState.oauth.expires}}
+                You already have an access_token for <a>{{currentState.oauth.domain_prefix}}.vendhq.com</a> which expires on {{currentState.oauth.expires}}
+                <li>
+                    Click this link to kick-off a sample request for a new access token from Vend <u>based on a stored refresh token</u>:
+                    <a ng-click="vend.refreshAccessToken()">
+                        {{vend.tokenService}}
+                    </a>
+                </li>
             </label>
         </div>
         <div class="form-group required">
@@ -28,11 +34,15 @@
         <div class="form-group"
              ng-if="domainPrefix && domainPrefix.length>0 && domainPrefix.trim().length>0">
             <label>
-                Click the link below to request an authorization code for oauth from Vend:
+                <div class="form-group">
+                    Make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
                 <br/><br/>
+
+                    Click this link to kick-off a sample workflow that requests a new access token from Vend <u>based on an authorization code</u>:
                 <a ng-href="{{vend.loginUrl()}}">
                     {{vend.authEndpoint}}
                 </a>
+                </div>
             </label>
         </div>
     </div>

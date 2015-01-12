@@ -81,6 +81,7 @@ app.use(express.static(path.join(__dirname, 'app')));
 app.use(express.errorHandler());
 
 app.get('/current', misc.current);
+app.get('/token/:tokenProvider/refresh', api.refreshAccessToken);
 app.get('/token/:tokenProvider', api.token);
 
 http.createServer(app).listen(app.get('port'), function () {
