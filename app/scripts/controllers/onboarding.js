@@ -13,6 +13,11 @@ angular.module('DemoApp')
       $scope.vendTokenService=vendTokenService;
       $scope.baseUrl=baseUrl;
 
+      $scope.jsoneditorOptions = {
+        'mode': 'view'
+      };
+      $scope.json = {};
+
       // =========
       // Load Page
       // =========
@@ -70,7 +75,8 @@ angular.module('DemoApp')
         $http.get(baseUrl + '/vend/fetchProducts')
           .success(function(response){
             /*jshint camelcase: false*/
-            console.log(response);
+            $scope.json = response;
+            $scope.jsoneditorOptions.name = 'fetchProducts';
             return loadCurrentStatus(); // we want to update the time on-screen for the newest accessToken
           })
           .error(function(error){

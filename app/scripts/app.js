@@ -9,6 +9,7 @@ angular.module('DemoApp', [
     ,'ngStorage'
     ,'ui.utils'
     ,'app-constants'
+    ,'ngJsonEditor'
   ])
   .config(['$stateProvider', '$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
     $stateProvider
