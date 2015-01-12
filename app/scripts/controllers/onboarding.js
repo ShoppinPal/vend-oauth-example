@@ -66,5 +66,17 @@ angular.module('DemoApp')
           });
       };
 
+      $scope.vend.fetchProducts = function() {
+        $http.get(baseUrl + '/vend/fetchProducts')
+          .success(function(response){
+            /*jshint camelcase: false*/
+            console.log(response);
+            return loadCurrentStatus(); // we want to update the time on-screen for the newest accessToken
+          })
+          .error(function(error){
+            console.log(error);
+          });
+      };
+
     }
   ]);

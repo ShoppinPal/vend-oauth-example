@@ -11,10 +11,18 @@
             </label>
             <label ng-if="currentState.oauth.access_token">
                 You already have an access_token for <a>{{currentState.oauth.domain_prefix}}.vendhq.com</a> which expires on {{currentState.oauth.expires}}
+                <!-- todo: use some timer like component for angular to countdown to when the token expires -->
+                <!-- todo: use moment.js to compare and tell if the token has already expired and requires a reissue-->
                 <li>
-                    Click this link to kick-off a sample request for a new access token from Vend <u>based on a stored refresh token</u>:
+                    Click the following link to kick-off a sample request for a new access token from Vend <u>based on a stored refresh token</u>:
                     <a ng-click="vend.refreshAccessToken()">
                         {{vend.tokenService}}
+                    </a>
+                </li>
+                <li>
+                    Click the following link to kick-off a sample request to fetch products from Vend <u>based on the stored access token</u>:
+                    <a ng-click="vend.fetchProducts()">
+                        Fetch Products from Vend
                     </a>
                 </li>
             </label>

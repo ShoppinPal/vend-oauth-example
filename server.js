@@ -83,6 +83,7 @@ app.use(express.errorHandler());
 app.get('/current', misc.current);
 app.get('/token/:tokenProvider/refresh', api.refreshAccessToken);
 app.get('/token/:tokenProvider', api.token);
+app.get('/:tokenProvider/fetchProducts', api.fetchProducts);
 
 http.createServer(app).listen(app.get('port'), function () {
   'use strict';
