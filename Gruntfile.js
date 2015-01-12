@@ -92,6 +92,7 @@ module.exports = function (grunt) {
           patterns: [
             {
               json: {
+                vendTokenService: '<%= buildProperties.vend.token_service %>',
                 vendAuthEndpoint: '<%= buildProperties.vend.auth_endpoint %>',
                 vendClientId: '<%= buildProperties.vend.client_id %>',
                 baseUrl: '<%= buildProperties.site.baseUrl %>'
