@@ -6,6 +6,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , api = require('./lib/api')
+  , misc = require('./lib/api/misc')
   , nconf = require('nconf')
   , winston = require('winston');
 
@@ -79,7 +80,7 @@ app.use(express.static(path.join(__dirname, '.tmp')));
 app.use(express.static(path.join(__dirname, 'app')));
 app.use(express.errorHandler());
 
-//app.get('/api/paypal/token', api.paypal.token);
+app.get('/current', misc.current);
 app.get('/token/:tokenProvider', api.token);
 
 http.createServer(app).listen(app.get('port'), function () {

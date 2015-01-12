@@ -3,14 +3,18 @@
         <div class="form-group"></div>
         <div class="form-group">
             <label>
-                (1) Don't forget to configure client_id and client_secret, if you haven't already, before running this sample.
-                <br/>
-                <br/>
-                (2) And also make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
+                Make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
+                <ol>
+                    <li ng-if="!currentState.config.vend.client_id">client_id hasn't been configured in {{currentState.config.filename}}, before running this sample.</li>
+                    <li ng-if="!currentState.config.vend.client_secret">client_secret hasn't been configured in {{currentState.config.filename}}, before running this sample.</li>
+                </ol>
+            </label>
+            <label ng-if="currentState.oauth.access_token">
+                You have an access_token for <a>{{currentState.oauth.domain_prefix}}.vendhq.com</a> which expires on {{currentState.oauth.expires}}
             </label>
         </div>
         <div class="form-group required">
-            <label for="vendurl">(3) What is the domain prefix for your Vend Store?</label>
+            <label for="vendurl">What is the domain prefix for your Vend Store?</label>
             <div class="input-group">
                 <span class="input-group-addon">https://</span>
                 <input type="text" class="form-control"
