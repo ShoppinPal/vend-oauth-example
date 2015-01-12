@@ -12,13 +12,20 @@ angular.module('DemoApp')
       $scope.vendAuthEndpoint=vendAuthEndpoint;
       $scope.baseUrl=baseUrl;
 
-      // ====================================================
-      // Data Binding code for onboarding_addStoreConfig.html view
-      // ====================================================
+      // =========
+      // Load Page
+      // =========
 
-      $scope.addNewStoreConfig = function(){
-        console.log('addNewStoreConfig()');
-      };
+      $http.get(baseUrl + '/current')
+        .success(function(response){
+          /*jshint camelcase: false*/
+          console.log(response);
+          $scope.currentState = response;
+          $scope.domainPrefix = $scope.currentState.oauth.domain_prefix;
+        })
+        .error(function(error){
+          console.log(error);
+        });
 
       // ==================
       // Vend related code
