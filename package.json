@@ -1,6 +1,6 @@
 {
   "name": "vend-oauth-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "ejs": "~0.8.5",
     "express": "~3.4.8",
