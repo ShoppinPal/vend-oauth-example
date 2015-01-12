@@ -3,14 +3,24 @@
         <div class="form-group"></div>
         <div class="form-group">
             <label>
-                (1) Don't forget to configure client_id and client_secret, if you haven't already, before running this sample.
-                <br/>
-                <br/>
-                (2) And also make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
+                Make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
+                <ol>
+                    <li ng-if="!currentState.config.vend.client_id">client_id hasn't been configured in {{currentState.config.filename}}, before running this sample.</li>
+                    <li ng-if="!currentState.config.vend.client_secret">client_secret hasn't been configured in {{currentState.config.filename}}, before running this sample.</li>
+                </ol>
+            </label>
+            <label ng-if="currentState.oauth.access_token">
+                You already have an access_token for <a>{{currentState.oauth.domain_prefix}}.vendhq.com</a> which expires on {{currentState.oauth.expires}}
+                <li>
+                    Click this link to kick-off a sample request for a new access token from Vend <u>based on a stored refresh token</u>:
+                    <a ng-click="vend.refreshAccessToken()">
+                        {{vend.tokenService}}
+                    </a>
+                </li>
             </label>
         </div>
         <div class="form-group required">
-            <label for="vendurl">(3) What is the domain prefix for your Vend Store?</label>
+            <label for="vendurl">What is the domain prefix for your Vend Store?</label>
             <div class="input-group">
                 <span class="input-group-addon">https://</span>
                 <input type="text" class="form-control"
@@ -24,11 +34,15 @@
         <div class="form-group"
              ng-if="domainPrefix && domainPrefix.length>0 && domainPrefix.trim().length>0">
             <label>
-                Click the link below to request an authorization code for oauth from Vend:
+                <div class="form-group">
+                    Make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
                 <br/><br/>
+
+                    Click this link to kick-off a sample workflow that requests a new access token from Vend <u>based on an authorization code</u>:
                 <a ng-href="{{vend.loginUrl()}}">
                     {{vend.authEndpoint}}
                 </a>
+                </div>
             </label>
         </div>
     </div>
