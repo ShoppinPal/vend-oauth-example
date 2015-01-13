@@ -23,6 +23,10 @@
   1. so, if I have a vend store named: `blah123.vendhq.com`
   2. then I will register a Redirect URI: https://blah123.localtunnel.me/token/vend
   3. and *afterwards* run the sample with the command: `grunt server --subdomain blah123`
+4. A new page will be automatically opened in your browser for you
+  1. if the page doesn't laod within 10-20 seconds:
+    1. stop the grunt cmd in your terminal using `ctrl+c`
+    2. simply rerun it: `grunt server --subdomain vendDomainPrefix` ... localtunnel is a free service so I don't know if its being flaky or the code is using it poorly ... rerunning resolves the problem 1 times out of 3.
 
 ## run it - long boring detailed story
 There is some magic happening behind the scenes on your behalf for this sample: a publically accessible url is being spun up so that Vend can talk to the code running locally on your machine. That url is of the form: `vendDomainPrefix.localtunnel.me` because there is a good chance that nobody else is using your store's vendDomainPrefix with localtunnel ... so stick to that. If its nto working for you, try substituting with another unique word or name when launching.
