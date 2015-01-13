@@ -22,7 +22,7 @@
 ## run it - long boring detailed story
 There is some magic happening behind the scenes on your behalf for this sample: a publically accessible url is being spun up so that Vend can talk to the code running locally on your machine. That url is of the form: `vendDomainPrefix.localtunnel.me` because there is a good chance that nobody else is using your store's vendDomainPrefix with localtunnel ... so stick to that. If its nto working for you, try substituting with another unique word or name when launching.
 
-# tests
+## tests
 1. demonstrates how a 429 response code due to Vend rate limiting is handled: `NODE_ENV=development node tests/429.js`
 2. attempts (doesn't work) to record a 429 response code from Vend by exceedign the rate limit: `NODE_ENV=development node tests/429.js`
 
