@@ -13,6 +13,7 @@
   1. do not edit/change/substitute any other properties
 7. `cd node_modules/vend-nodejs-sdk`
 8. `npm install`
+  1. its not ideal but use `sudo npm install` if the permissions in your directory structure require it
 9. `cd ../..`
 
 ## run it - short & sweet version
