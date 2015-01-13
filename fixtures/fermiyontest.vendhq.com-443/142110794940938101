@@ -1,0 +1,22 @@
+GET /api/products
+authorization: Bearer euzdDTc6X56cDARdpiSBpemeEw3xRml0vq6MJudp
+host: fermiyontest.vendhq.com
+
+429 HTTP/1.1
+server: nginx
+content-type: application/json; charset=UTF-8
+transfer-encoding: chunked
+connection: keep-alive
+vary: Accept-Encoding
+pragma: no-cache
+cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0, private
+strict-transport-security: max-age=15638400; includeSubDomains
+set-cookie: vend=JDH82pVzA4zG5BKwoURzG0VMtvO:TKBTqFi57RTVARlppxR4C3rQ23k; expires=Tue, 20-Jan-2015 00:12:28 GMT; Max-Age=604800; path=/; domain=vendhq.com; secure; httponly
+
+{
+  "error": "Your access to the API has been rate limited",
+  "limits": {
+    "retailer": "651 > 650 for fermiyontest"
+  },
+  "retry-after": "Tue, 13 Jan 2015 04:51:25 +0000"
+}
