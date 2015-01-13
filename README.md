@@ -16,7 +16,7 @@
   1. its not ideal but use `sudo npm install` if the permissions in your directory structure require it
 9. `cd ../..`
 
-## run it - short & sweet version
+## run it
 1. finish setup as specified above
 2. Make sure that your vend developer app is registered with Redirect URI: `https://<vendDomainPrefix>.localtunnel.me/token/vend`
 3. `grunt server --subdomain vendDomainPrefix`
@@ -24,16 +24,16 @@
   2. then I will register a Redirect URI: https://blah123.localtunnel.me/token/vend
   3. and *afterwards* run the sample with the command: `grunt server --subdomain blah123`
 4. A new page will be automatically opened in your browser for you
-  1. if the page doesn't load within 10-20 seconds:
-    1. stop the grunt cmd in your terminal using `ctrl+c`
-    2. simply rerun it: `grunt server --subdomain vendDomainPrefix` ... localtunnel is a free service so I don't know if its being flaky or the code is using it poorly ... rerunning resolves the problem 1 times out of 3.
-    3. also feel free to try different subdomain names to make it work:
-      1. `grunt server --subdomain blah1`
-      2. `grunt server --subdomain blah2`
-      3. `grunt server --subdomain blah3`
+5. Problems? Checkout the troubleshooting section.
 
-## run it - long boring detailed story
-There is some magic happening behind the scenes on your behalf for this sample: a publically accessible url is being spun up so that Vend can talk to the code running locally on your machine. That url is of the form: `vendDomainPrefix.localtunnel.me` because there is a good chance that nobody else is using your store's vendDomainPrefix with localtunnel ... so stick to that. If its nto working for you, try substituting with another unique word or name when launching.
+## troubleshooting
+1. There is some magic happening behind the scenes on your behalf for this sample: a publically accessible url is being spun up so that Vend can talk to the code running locally on your machine. That url is of the form: `vendDomainPrefix.localtunnel.me` because there is a good chance that nobody else is using your store's vendDomainPrefix with localtunnel ... so stick to that. If its still not working for you, try substituting with another unique word or name when launching.
+ 1. `grunt server --subdomain blah1` ( also means a new redirect uri: https://**blah1**.localtunnel.me/token/vend )
+ 2. `grunt server --subdomain blah2` ( also means a new redirect uri: https://**blah2**.localtunnel.me/token/vend )
+ 3. `grunt server --subdomain blah3` ( also means a new redirect uri: https://**blah3**.localtunnel.me/token/vend )
+2. If the new page launched in browser doesn't load within 10-20 seconds, its probably not goign to load at all!
+    1. stop the `grunt` cmd in your terminal/CLI using `ctrl+c`
+    2. simply rerun it: `grunt server --subdomain vendDomainPrefix` ... localtunnel is a free service so I don't know if its being flaky or the code is using it poorly ... rerunning resolves the problem 1 times out of 3.
 
 ## tests
 1. demonstrates how a 429 response code due to Vend rate limiting is handled: `NODE_ENV=development node tests/429.js`
