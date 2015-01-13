@@ -6,7 +6,9 @@
 1. `git clone --recursive https://github.com/ShoppinPal/vend-oauth-example.git`
 2. `cd vend-oauth-example`
 3. `npm install`
+  1. its not ideal but use `sudo npm install` if the permissions in your directory structure require it
 4. `bower install`
+  1. its not ideal but use `sudo bower install` if the permissions in your directory structure require it
 5. edit `config/development.json` and fill out your vend developer `client_id` and `client_secret` which can be found here: https://developers.vendhq.com/developer/applications
   1. do not edit/change/substitute any other properties
 7. `cd node_modules/vend-nodejs-sdk`
