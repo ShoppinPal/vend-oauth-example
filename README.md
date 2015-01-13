@@ -8,13 +8,15 @@
 3. `npm install`
 4. `bower install`
 5. edit `config/development.json` and fill out your vend developer `client_id` and `client_secret` which can be found here: https://developers.vendhq.com/developer/applications
-5. `cd node_modules/vend-nodejs-sdk`
+  1. do not edit/change/substitute any other properties
+7. `cd node_modules/vend-nodejs-sdk`
 8. `npm install`
 9. `cd ../..`
 
 ## run it - short & sweet version
-1. Make sure that your vend developer app is registered with Redirect URI: `https://<vendDomainPrefix>.localtunnel.me/token/vend`
-2. `grunt server --subdomain vendDomainPrefix`
+1. finish setup as specified above
+2. Make sure that your vend developer app is registered with Redirect URI: `https://<vendDomainPrefix>.localtunnel.me/token/vend`
+3. `grunt server --subdomain vendDomainPrefix`
   1. so, if I have a vend store named: `blah123.vendhq.com`
   2. then I will register a Redirect URI: https://blah123.localtunnel.me/token/vend
   3. and *afterwards* run the sample with the command: `grunt server --subdomain blah123`
