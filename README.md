@@ -24,7 +24,7 @@ There is some magic happening behind the scenes on your behalf for this sample: 
 
 ## tests
 1. demonstrates how a 429 response code due to Vend rate limiting is handled: `NODE_ENV=development node tests/429.js`
-2. attempts (doesn't work) to record a 429 response code from Vend by exceedign the rate limit: `NODE_ENV=development node tests/429.js`
+2. attempts (doesn't work) to record a 429 response code from Vend by exceedign the rate limit: `NODE_ENV=development node tests/429-brute-force.js`
 
 ## contributions
 
