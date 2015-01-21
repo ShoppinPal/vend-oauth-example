@@ -10,7 +10,7 @@ console.log('nconf.get(): ', nconf.get());
  replay.headers.push(/^content-length/);*/
 
 var Promise = require('bluebird');
-var vend = require('vend-nodejs-sdk');
+var vendSdk = require('vend-nodejs-sdk')({});
 
 var registers = 4;
 var apiLimit = 300 * registers + 50; // 5 minute window
@@ -23,7 +23,7 @@ console.log('need to run more than ' + apiLimit + ' times in a 5 min window for 
 var promises = [];
 for (var i = 0; i < exceedApiLimit; ++i) {
   promises.push(
-    vend.fetchProducts(
+    vendSdk.fetchProducts(
       nconf.get('domain_prefix'),
       nconf.get('access_token')
     )

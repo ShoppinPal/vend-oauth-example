@@ -9,9 +9,9 @@ var replay = require('replay');
 replay.mode = 'record';
 replay.headers.push(/^content-length/);
 
-var vend = require('vend-nodejs-sdk');
+var vendSdk = require('vend-nodejs-sdk')({});
 
-vend.fetchProducts(
+vendSdk.fetchProducts(
   nconf.get('domain_prefix'),
   nconf.get('access_token')
 )
