@@ -3,6 +3,9 @@ vend-oauth-example
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shoppinpal/vend-oauth-example?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+# Alternative
+Just use https://www.runscope.com/oauth2_tool ... but if you need this to be part of your code and not just a one time thing then carry on.
+
 ## setup
 1. `git clone --recursive https://github.com/ShoppinPal/vend-oauth-example.git`
 2. `cd vend-oauth-example`
