@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <div>
+            <h4>Looks like either you are a first time user or if you are visiting again, we don't have your token credentials in our temporary storage. Please enter the following details from your Vend developer account</h4>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Enter your Client Secret and DomainPrefix from your vend developer account</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="vendCsecret">Vend Client Secret</label>
+                        <input type="text" class="form-control" id="vendCsecret" ng-model="vend.clientSecret" placeholder="Client Secret for Vend" />
+                    </div>
+                    <div class="form-group required">
+                        <label for="vendurl">What is the domain prefix for your Vend Store?</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">https://</span>
+                            <input type="text" class="form-control"
+                                   name="vendurl" id="vendurl"
+                                   placeholder="mystore"
+                                   ng-model="domainPrefix"
+                                   required/>
+                            <span class="input-group-addon">.vendhq.com</span>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" ng-href="{{vend.loginUrl()}}">Login with Vend</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

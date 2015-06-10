@@ -1,49 +1,72 @@
 <div class="row">
     <div class="col-md-4 col-md-offset-2">
+        <div class="form-group">
+            <h4>Vend Token data is stored in Redis and it will be cleared after 10 minutes.</h4>
+            <table class="table table-striped">
+                <tr>
+                    <td><h5><b>AccessToken</b></h5></td>
+                    <td>{{vend.access_token}}</td>
+                </tr>
+                <tr>
+                    <td><h5><b>RefreshToken</b></h5></td>
+                    <td>{{vend.refresh_token}}</td>
+                </tr>
+                <tr>
+                    <td><h5><b>Expires In</b></h5></td>
+                    <td>{{vend.expires_in}}</td>
+                </tr>
+                <tr>
+                    <td><h5><b>DomainPrefix</b></h5></td>
+                    <td>{{vend.domain_prefix}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9 col-md-offset-1">
         <div class="form-group"></div>
         <div class="form-group">
-            <label>
-                Make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
-                <ol>
-                    <li ng-if="!currentState.config.vend.client_id">client_id hasn't been configured in {{currentState.config.filename}}, before running this sample.</li>
-                    <li ng-if="!currentState.config.vend.client_secret">client_secret hasn't been configured in {{currentState.config.filename}}, before running this sample.</li>
-                </ol>
-            </label>
-            <label ng-if="currentState.oauth.access_token">
-                You already have an access_token for <a>{{currentState.oauth.domain_prefix}}.vendhq.com</a> which expires on {{currentState.oauth.expires}}
-                <li>
-                    Click this link to kick-off a sample request for a new access token from Vend <u>based on a stored refresh token</u>:
-                    <a ng-click="vend.refreshAccessToken()">
-                        {{vend.tokenService}}
-                    </a>
-                </li>
-            </label>
-        </div>
-        <div class="form-group required">
-            <label for="vendurl">What is the domain prefix for your Vend Store?</label>
-            <div class="input-group">
-                <span class="input-group-addon">https://</span>
-                <input type="text" class="form-control"
-                       name="vendurl" id="vendurl"
-                       placeholder="mystore"
-                       ng-model="domainPrefix"
-                       required/>
-                <span class="input-group-addon">.vendhq.com</span>
+            <div ng-if="vend.access_token">
+                <!--<h4>You already have an access_token for <a>{{vend.domain_prefix}}.vendhq.com</a> which expires in {{vend.expires_in/3600}} hours</h4>-->
+                <!-- todo: use some timer like component for angular to countdown to when the token expires -->
+                <!-- todo: use moment.js to compare and tell if the token has already expired and requires a reissue-->
+                <form role="form">
+                        <div>
+                            <div class="form-group">
+                                <label for="clientId">Vend Client Id</label>
+                                <label>{{refresh.clientId}}</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="clientSecret">Vend Client Secret</label>
+                                <input type="text" class="form-control" id="clientSecret" ng-model="refresh.clientSecret" placeholder="Client Secret for Vend" />
+                            </div>
+                        </div>
+                    <li>
+                        <div>
+                            <h4>If you want to run a sample request for getting a new access token from Vend based on a refresh token stored in redis, Please enter your Vend Client Secret and click the Refresh AccessToken button:</h4>
+                            <h4>Your new accesstoken will be updated with new expires time in the table above: </h4>
+                            <button class="btn btn-primary" ng-click="refreshAccessToken()">
+                                Refresh AccessToken
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>If you want to run a sample request for fetching products from Vend based on the stored access token in redis temporarily, make sure you enter your Vend Client Secret in the box above and click Fetch VendProducts button:</h4>
+                            <button class="btn btn-primary" ng-click="fetchProducts()">
+                                Fetch VendProducts
+                            </button>
+                        </div>
+                    </li>
+                </form>
+
             </div>
         </div>
-        <div class="form-group"
-             ng-if="domainPrefix && domainPrefix.length>0 && domainPrefix.trim().length>0">
-            <label>
-                <div class="form-group">
-                    Make sure that your vend developer app is registered with Redirect URI: {{baseUrl}}/token/vend
-                <br/><br/>
+        <jsoneditor options="jsoneditorOptions" json="json"></jsoneditor>
 
-                    Click this link to kick-off a sample workflow that requests a new access token from Vend <u>based on an authorization code</u>:
-                <a ng-href="{{vend.loginUrl()}}">
-                    {{vend.authEndpoint}}
-                </a>
-                </div>
-            </label>
-        </div>
     </div>
 </div>

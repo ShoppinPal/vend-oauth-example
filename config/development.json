@@ -8,8 +8,10 @@
   },
   "vend":{
     "auth_endpoint":"https://{DOMAIN_PREFIX}.vendhq.com/connect",
-    "token_service":"https://{DOMAIN_PREFIX}.vendhq.com/api/1.0/token",
-    "client_id":"",
-    "client_secret":""
+    "token_service":"https://{DOMAIN_PREFIX}.vendhq.com/api/1.0/token"
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": "6379"
   }
 }

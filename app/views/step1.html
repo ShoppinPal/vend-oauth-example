@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <div>
+            <h4>Note: Make sure that your vend developer app is registered with Redirect URI: <strong>{{baseUrl}}/token/vend</strong></h4>
+            <h4>We respect the security concerns of every user so we do not store the tokens or any user credentials more that 10 minutes in our temporary storage</h4>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">To start the Oauth process, enter your vend Client Id from your vend developer account</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="vendCid">Vend Client Id</label>
+                        <input type="text" class="form-control" id="vendCid" ng-model="vend.clientId" placeholder="Client Id for Vend" />
+                    </div>
+
+                    <button class="btn btn-primary" ng-click="next()">Enter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
