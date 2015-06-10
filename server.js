@@ -6,7 +6,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , api = require('./lib/api')
-  , misc = require('./lib/api/misc')
+  //, misc = require('./lib/api/misc')
   , nconf = require('nconf')
   , winston = require('winston');
 
@@ -80,7 +80,7 @@ app.use(express.static(path.join(__dirname, '.tmp')));
 app.use(express.static(path.join(__dirname, 'app')));
 app.use(express.errorHandler());
 
-app.get('/current', misc.current);
+app.get('/:tokenProvider/current/:clientId', api.current);
 app.get('/token/:tokenProvider/refresh', api.refreshAccessToken);
 app.get('/token/:tokenProvider', api.token);
 

@@ -1,0 +1,29 @@
+/* Put your CSS here */
+
+html, body, ul,ol {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+body{
+  background: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  padding-top: 10px;
+}
+
+table,th,td
+{
+  border:1px solid lightgrey;
+  border-collapse:collapse;
+}
+th,td
+{
+  padding:5px;
+}
+
+h4{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}

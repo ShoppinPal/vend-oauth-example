@@ -13,53 +13,70 @@ angular.module('DemoApp')
       $scope.vendTokenService=vendTokenService;
       $scope.baseUrl=baseUrl;
 
+      $scope.jsoneditorOptions = {
+        'mode': 'view'
+      };
+      $scope.json = {};
+
+
       // =========
       // Load Page
       // =========
 
-      var loadCurrentStatus = function(){
-        return $http.get(baseUrl + '/current')
-          .success(function(response){
-            /*jshint camelcase: false*/
+      $scope.vend = {};
+      $scope.refresh = {};
+
+      console.log($stateParams.clientId);
+      $http.get(baseUrl + '/vend/current/'+$stateParams.clientId)
+        .success(function(response){
+          /*jshint camelcase: false*/
+          if(!response.access_token && !response.refresh_token){
+            $state.go('step1');
+          }
+          else {
             console.log(response);
-            $scope.currentState = response;
-            $scope.domainPrefix = $scope.currentState.oauth.domain_prefix;
-          })
-          .error(function(error){
-            console.log(error);
-          });
-      };
-      loadCurrentStatus();
+            $scope.vend = response;
+            $scope.refresh.clientId = $stateParams.clientId;
+          }
+        })
+        .error(function(error){
+          console.log(error);
+        });
+
+
 
       // ==================
       // Vend related code
       // ==================
 
-      $scope.vend = {};
-      $scope.vend.loginUrl = function() {
-        console.log('inside $scope.vend.loginUrl()');
-        var loginUrl;
-        if ($scope.domainPrefix && $scope.domainPrefix.length > 0 && $scope.domainPrefix.trim().length > 0) {
-          $scope.vend.tokenService = vendTokenService.replace(/\{DOMAIN_PREFIX\}/, $scope.domainPrefix.trim());
-          $scope.vend.authEndpoint = vendAuthEndpoint.replace(/\{DOMAIN_PREFIX\}/, $scope.domainPrefix.trim());
-          var clientId = encodeURIComponent(vendClientId);
-          var redirectUri = encodeURIComponent(baseUrl + '/token/vend');
-          loginUrl = $scope.vend.authEndpoint  +
-            '?response_type=code' +
-            '&client_id=' + clientId +
-            '&redirect_uri=' + redirectUri +
-            '&state=' + 'any static data which your app needs to continue oauth workflow when user comes back';
+      $scope.refreshAccessToken = function() {
+        console.log('inside refresh: '+ $stateParams.clientId + '-'+ $scope.refresh.clientSecret);
+        $http.get(baseUrl + '/token/vend/refresh',{params: {
+          clientId: $stateParams.clientId,
+          clientSecret: $scope.refresh.clientSecret
         }
-        return loginUrl;
+        })
+          .success(function(){
+            /*jshint camelcase: false*/
+            $state.go($state.$current, null, {reload: true});
+          })
+          .error(function(error){
+            console.log(error);
+          });
       };
-      //console.log('Vend Url: ', $scope.loginUrl);
 
-      $scope.vend.refreshAccessToken = function() {
-        $http.get(baseUrl + '/token/vend/refresh')
+      $scope.fetchProducts = function() {
+        console.log('inside products: '+ $stateParams.clientId + '-'+ $scope.refresh.clientSecret);
+
+        $http.get(baseUrl + '/vend/fetchProducts',{params: {
+          clientId: $stateParams.clientId,
+          clientSecret: $scope.refresh.clientSecret
+        }
+        })
           .success(function(response){
             /*jshint camelcase: false*/
-            console.log(response);
-            return loadCurrentStatus(); // we want to update the time on-screen for the newest accessToken
+            $scope.json = response;
+            $scope.jsoneditorOptions.name = 'fetchProducts';
           })
           .error(function(error){
             console.log(error);
