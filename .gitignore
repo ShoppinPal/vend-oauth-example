@@ -6,6 +6,7 @@ app/bower_components/
 .editorconfig
 .nvmrc
 oauth.txt
+.gitmodules
 
 !/node_modules/
 /node_modules/*
