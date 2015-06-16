@@ -1,0 +1,11 @@
+{
+  "name": "vend-oauth-sample",
+  "description": "Quickly get an oauth token for vend to make API calls",
+  "repository": "https://github.com/ShoppinPal/vend-oauth-example/tree/feature/host_server",
+  "keywords": [
+    "nodejs",
+    "HTML",
+    "angularjs",
+    "redis"
+  ]
+}
