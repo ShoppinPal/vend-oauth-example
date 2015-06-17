@@ -12,6 +12,7 @@
     "requestify": "~0.1.16",
     "then-redis": "*",
     "winston": "~0.7.2",
+    "bower": "~1.3.3",
     "vend-nodejs-sdk": "ShoppinPal/vend-nodejs-sdk#master"
   },
   "devDependencies": {
@@ -29,6 +30,9 @@
     "grunt-env": "^0.4.1",
     "grunt-replace": "^0.7.6",
     "grunt-localtunnel-me": "^0.1.1"
+  },
+  "scripts": {
+    "postinstall": "bash ./post_install.sh"
   },
   "engines": {
     "node": ">=0.10.0"
