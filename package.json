@@ -13,10 +13,10 @@
     "then-redis": "*",
     "winston": "~0.7.2",
     "bower": "~1.3.3",
+    "grunt": "~0.4.2",
     "vend-nodejs-sdk": "ShoppinPal/vend-nodejs-sdk#master"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jshint": "~0.8.0",
@@ -32,7 +32,7 @@
     "grunt-localtunnel-me": "^0.1.1"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "bash ./post_install.sh"
   },
   "engines": {
     "node": ">=0.10.0"
