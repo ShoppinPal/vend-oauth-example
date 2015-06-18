@@ -15,9 +15,6 @@
     "bower": "~1.3.3",
     "grunt": "~0.4.2",
     "grunt-cli": "0.1.13",
-    "vend-nodejs-sdk": "ShoppinPal/vend-nodejs-sdk#master"
-  },
-  "devDependencies": {
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jshint": "~0.8.0",
@@ -30,7 +27,8 @@
     "matchdep": "~0.3.0",
     "grunt-env": "^0.4.1",
     "grunt-replace": "^0.7.6",
-    "grunt-localtunnel-me": "^0.1.1"
+    "grunt-localtunnel-me": "^0.1.1",
+    "vend-nodejs-sdk": "ShoppinPal/vend-nodejs-sdk#master"
   },
   "scripts": {
     "postinstall": "bash ./post_install.sh"
